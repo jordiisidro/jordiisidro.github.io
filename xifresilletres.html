@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <title>Xifres i lletres</title>
+
+    <script>
+         var countDownTarget = new Date().getTime() + 2 * 60 * 1000;
+
+        function showClock(target) {{
+            const distance = target - new Date().getTime();
+            const mins = distance < 0 ? 0: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = distance < 0 ? 0: Math.floor((distance % (1000 * 60)) / 1000);
+            // Output the results
+            try{{
+                document.getElementById("minutes").innerHTML = ("0" + mins).slice (-2);
+                document.getElementById("seconds").innerHTML = ("0" + secs).slice (-2);;
+            }}
+            catch (e) {{
+                console.log('no passa res');
+            }}
+        }}
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {{
+            showClock(countDownTarget);
+            if (countDownTarget - new Date().getTime() < 0) {{
+                clearInterval(x);
+                document.getElementById("tempsfi").innerHTML = "TEMPS FINALITZAT";
+            }}
+        }}, 1000);
+
+        var num = [1,2,3,4,5,6,7,8,9,10,25,50,75,100];
+
+        function genera_xifres_i_lletres(){
+            for (var i = 1; i <= 6; i++) {
+             document.getElementById('num'+i).innerHTML = num[Math.floor(Math.random() * 13)];
+            }
+            document.getElementById('numero').innerHTML = Math.floor(Math.random() * (999 - 100 + 1) + 100)
+            countDownTarget = new Date().getTime() + 2 * 60 * 1000;
+        }
+
+
+    </script>
+</head>
+
+<body onload="genera_xifres_i_lletres()">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+        <h1>Xifres i lletres</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <h2>Número:</h2>
+    </div>
+    <div class="col-sm-10">
+      <h2 id="numero"></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <h2>Números:</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <h2 id="num1">100</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2 id="num2">100</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2 id="num3">100</h2>
+    </div>
+      <div class="col-sm-2">
+      <h2 id="num4">100</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2 id="num5">100</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2 id="num6">100</h2>
+    </div>
+  </div>
+
+    <div class="row">
+       <div class="col-sm-4">
+        &nbsp;
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-2">
+      <h2>Temps:</h2>
+    </div>
+    <div class="col-sm-10">
+      <h3>  <b id="minutes"></b>:<b id="seconds"></b></h3>
+      <h2 id="tempsfi"></h2>
+    </div>
+  </div>
+
+
+
+   <div class="row">
+       <div class="col-sm-4">
+        &nbsp;
+    </div>
+    <div class="col-sm-4">
+        <button  class="btn btn-primary" onclick="genera_xifres_i_lletres()">Genera nous números</button>
+    </div>
+       <div class="col-sm-4">
+        &nbsp;
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
