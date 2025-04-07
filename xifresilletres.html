@@ -6,7 +6,9 @@
     <title>Xifres i lletres</title>
 
     <script>
-         var countDownTarget = new Date().getTime() + 2 * 60 * 1000;
+        var temps = 2 * 60 * 1000
+        var countDownTarget = new Date().getTime() + temps;
+        var reset = 0;
 
         function showClock(target) {{
             const distance = target - new Date().getTime();
@@ -24,9 +26,14 @@
 
         // Update the count down every 1 second
         var x = setInterval(function() {{
+            console.log("entra");
+
+            if (reset == 1){
+                reset = 0;
+                countDownTarget = new Date().getTime() + temps
+            }
             showClock(countDownTarget);
             if (countDownTarget - new Date().getTime() < 0) {{
-                clearInterval(x);
                 document.getElementById("tempsfi").innerHTML = "TEMPS FINALITZAT";
             }}
         }}, 1000);
@@ -38,7 +45,8 @@
              document.getElementById('num'+i).innerHTML = num[Math.floor(Math.random() * 13)];
             }
             document.getElementById('numero').innerHTML = Math.floor(Math.random() * (999 - 100 + 1) + 100)
-            countDownTarget = new Date().getTime() + 2 * 60 * 1000;
+            document.getElementById("tempsfi").innerHTML = "";
+            reset = 1;
         }
 
 
@@ -103,7 +111,6 @@
     </div>
     <div class="col-sm-10">
       <h3>  <b id="minutes"></b>:<b id="seconds"></b></h3>
-      <h2 id="tempsfi"></h2>
     </div>
   </div>
 
@@ -120,6 +127,14 @@
         &nbsp;
     </div>
   </div>
+
+     <div class="row">
+
+    <div class="col-sm-10">
+      <h2 id="tempsfi"></h2>
+    </div>
+  </div>
+
 
 </div>
 
