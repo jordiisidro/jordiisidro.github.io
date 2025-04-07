@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="js/NoSleep.min.js" type="application/javascript">
+    </script>
+
     <title>Xifres i lletres</title>
 
     <script>
         var temps = 2 * 60 * 1000
         var countDownTarget = new Date().getTime() + temps;
         var reset = 0;
+        var noSleep = new NoSleep();
 
         function showClock(target) {{
             const distance = target - new Date().getTime();
@@ -47,96 +51,92 @@
             document.getElementById('numero').innerHTML = Math.floor(Math.random() * (999 - 100 + 1) + 100)
             document.getElementById("tempsfi").innerHTML = "";
             reset = 1;
+            noSleep.enable();
         }
-
 
     </script>
 </head>
 
 <body onload="genera_xifres_i_lletres()">
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Xifres i lletres</h1>
+            </div>
+        </div>
 
-        <h1>Xifres i lletres</h1>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h2>Número:</h2>
+            </div>
+            <div class="col-sm-10">
+                <h2 id="numero"></h2>
+            </div>
+        </div>
 
-  <div class="row">
-    <div class="col-sm-2">
-      <h2>Número:</h2>
-    </div>
-    <div class="col-sm-10">
-      <h2 id="numero"></h2>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h2>Números:</h2>
+            </div>
+        </div>
 
-  <div class="row">
-    <div class="col-sm-2">
-      <h2>Números:</h2>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h2 id="num1">100</h2>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="num2">100</h2>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="num3">100</h2>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="num4">100</h2>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="num5">100</h2>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="num6">100</h2>
+            </div>
+        </div>
 
-  <div class="row">
-    <div class="col-sm-2">
-      <h2 id="num1">100</h2>
-    </div>
-    <div class="col-sm-2">
-      <h2 id="num2">100</h2>
-    </div>
-    <div class="col-sm-2">
-      <h2 id="num3">100</h2>
-    </div>
-      <div class="col-sm-2">
-      <h2 id="num4">100</h2>
-    </div>
-    <div class="col-sm-2">
-      <h2 id="num5">100</h2>
-    </div>
-    <div class="col-sm-2">
-      <h2 id="num6">100</h2>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+        </div>
 
-    <div class="row">
-       <div class="col-sm-4">
-        &nbsp;
-    </div>
-    </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h2>Temps:</h2>
+            </div>
+            <div class="col-sm-10">
+                <h3>  <b id="minutes"></b>:<b id="seconds"></b></h3>
+            </div>
+        </div>
 
-    <div class="row">
-    <div class="col-sm-2">
-      <h2>Temps:</h2>
-    </div>
-    <div class="col-sm-10">
-      <h3>  <b id="minutes"></b>:<b id="seconds"></b></h3>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+            <div class="col-sm-4">
+                <button  class="btn btn-primary" onclick="genera_xifres_i_lletres()">Genera nous números</button>
+            </div>
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+        </div>
 
-
-
-   <div class="row">
-       <div class="col-sm-4">
-        &nbsp;
-    </div>
-    <div class="col-sm-4">
-        <button  class="btn btn-primary" onclick="genera_xifres_i_lletres()">Genera nous números</button>
-    </div>
-       <div class="col-sm-4">
-        &nbsp;
-    </div>
-  </div>
-
-     <div class="row">
-
-    <div class="col-sm-10">
-      <h2 id="tempsfi"></h2>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <h2 id="tempsfi"></h2>
+            </div>
+        </div>
 
 
-</div>
+    </div>
 
 </body>
 </html>
